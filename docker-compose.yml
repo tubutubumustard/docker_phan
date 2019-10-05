@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  phan:
+    build: ./phan
+    volumes:
+      - type: bind
+        source: ./phan/.phan
+        target: /analyze/.phan
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./phan/src #ここに解析したいディレクトリを設定する
+        target: /analyze/src
+        volume:
+          nocopy: true
